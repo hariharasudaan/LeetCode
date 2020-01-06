@@ -1,0 +1,23 @@
+Question:
+Given a non-negative integer num, repeatedly add all its digits until the result has only one digit.
+
+
+Solution:
+class Solution {
+    public int addDigits(int num) {
+        while(String.valueOf(num).length() > 1) {            
+            num = findSum(num);
+        }
+        return num;
+    }
+    
+    public int findSum(int num) {
+        int n = 0, sum = 0;
+        while(num>0) {
+            n = num % 10;
+            sum = sum + n;
+            num = num / 10;
+        }
+        return sum;
+    }
+}
